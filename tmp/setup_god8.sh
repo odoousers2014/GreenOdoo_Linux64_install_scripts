@@ -5,8 +5,8 @@
 
 odoo_url=https://github.com/buggy778/odoo-cn/archive/8.0.zip
 odoo_runtime_url=https://github.com/buke/GreenOdoo-Runtime/archive/linux64.zip
-ssd_url=http://zhflash.com/wp-content/download/start-stop-daemon.zip
 
+sudo mv start-stop-daemon /tmp
 sudo rm -rf /etc/init.d/od8
 sudo rm -rf /etc/init.d/pg8
 sudo cp od8 /etc/init.d
@@ -37,8 +37,6 @@ sudo chown -R openerp:openerp /home/od8
 sudo cp /home/od8/odoo/debian/openerp-server.conf /home/od8/openerp-server.conf
 sudo su openerp -c "echo 'addons_path=/home/od8/oodo/addons' >> /home/od8/openerp-server.conf"
 
-wget $ssd_url
-unzip start-stop-daemon.zip
 cd start-stop-daemon
 sudo gcc start-stop-daemon.c -o start-stop-daemon
 sudo cp start-stop-daemon /usr/sbin/
