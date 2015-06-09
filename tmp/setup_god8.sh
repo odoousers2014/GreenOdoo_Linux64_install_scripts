@@ -28,11 +28,10 @@ wget $odoo_runtime_url -O runtime.zip
 unzip odoo.zip
 mv odoo-cn-8.0 odoo
 sudo mv odoo /home/od8
-rm -fr odoo.zip
 unzip runtime.zip
 mv GreenOdoo-Runtime-linux64 runtime
 sudo mv runtime /home/od8
-rm -fr runtime.zip
+sudo rm -fr *
 sudo mkdir /home/od8/log
 sudo chown -R openerp:openerp /home/od8
 sudo cp /home/od8/odoo/debian/openerp-server.conf /home/od8/openerp-server.conf
