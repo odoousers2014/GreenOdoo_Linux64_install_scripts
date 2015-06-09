@@ -15,8 +15,8 @@ sudo chmod 755 /etc/init.d/od8
 sudo chmod 755 /etc/init.d/pg8
 sudo chown root: /etc/init.d/od8
 sudo chown root: /etc/init.d/pg8
-sudo chkconfig --levels 235 od8 on
-sudo chkconfig --levels 235 pg8 on
+sudo update-rc.d od8 defaults
+sudo update-rc.d pg8 defaults
 
 sudo useradd openerp
 sudo apt-get install wget unzip gcc
