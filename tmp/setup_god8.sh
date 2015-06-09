@@ -30,7 +30,7 @@ mv odoo-cn-8.0 odoo
 sudo mv odoo /home/od8
 rm -fr odoo.zip
 unzip runtime.zip
-mv GreenOdoo-Runtime runtime
+mv GreenOdoo-Runtime-linux64 runtime
 sudo mv runtime /home/od8
 rm -fr runtime.zip
 sudo mkdir /home/od8/log
