@@ -33,7 +33,7 @@ LOGFILE="/home/od8/log/openerp-server.log"
 PIDFILE=/home/od8/$NAME.pid
 
 # Additional options that are passed to the Daemon.
-DAEMON_OPTS="/home/od8/source/openerp-server -c $CONFIGFILE --logfile=$LOGFILE"
+DAEMON_OPTS="/home/od8/odoo/openerp-server -c $CONFIGFILE --logfile=$LOGFILE"
 
 # start from dir
 DIR=/home/od8
@@ -74,7 +74,7 @@ case "${1}" in
 
                 start-stop-daemon --stop --quiet --pidfile ${PIDFILE} \
                         --oknodo
-      
+
                 sleep 1
 
                 start-stop-daemon --start --quiet --pidfile ${PIDFILE} \

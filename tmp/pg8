@@ -6,7 +6,7 @@
 # Required-Stop:     $local_fs $remote_fs $network $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: starts the postgresql database 
+# Short-Description: starts the postgresql database
 # Description:       starts pg_ctl using start-stop-daemon
 ### END INIT INFO
 
@@ -23,11 +23,11 @@ DAEMON_OPTS="-D $DATAPATH start -l $LOGFILE"
 
 start() {
     echo "Starting PostgreSQL server ..."
-    su -c "$DAEMON $DAEMON_OPTS" ${USER}
+    sudo su ${USER} -c "$DAEMON $DAEMON_OPTS"
 }
 
 stop() {
-    su -c "$PGCTL -D $DATAPATH stop" ${USER}
+    sudo su ${USER} -c "$PGCTL -D $DATAPATH stop"
 }
 
 case $1 in

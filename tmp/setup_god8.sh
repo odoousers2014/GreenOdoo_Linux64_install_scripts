@@ -35,6 +35,8 @@ sudo mv runtime /home/od8
 rm -fr runtime.zip
 sudo mkdir /home/od8/log
 sudo chown -R openerp:openerp /home/od8
+sudo cp /home/od8/odoo/debian/openerp-server.conf /home/od8/openerp-server.conf
+sudo su openerp -c "echo 'addons_path=/home/od8/oodo/addons' >> /home/od8/openerp-server.conf"
 
 wget $ssd_url
 unzip start-stop-daemon.zip
