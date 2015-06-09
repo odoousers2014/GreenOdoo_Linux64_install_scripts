@@ -21,7 +21,7 @@ sudo update-rc.d pg8 defaults
 sudo useradd openerp
 sudo apt-get install wget unzip gcc
 cd /tmp
-rm -fr *
+sudo rm -fr *
 sudo rm -fr /home/od8/*
 wget $odoo_url -O odoo.zip
 wget $odoo_runtime_url -O runtime.zip
