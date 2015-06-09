@@ -1,0 +1,47 @@
+#!/usr/bin/env sh
+
+### BEGIN INIT INFO
+# Provides:          pg8
+# Required-Start:    $local_fs $remote_fs $network $syslog
+# Required-Stop:     $local_fs $remote_fs $network $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: starts the postgresql database 
+# Description:       starts pg_ctl using start-stop-daemon
+### END INIT INFO
+
+# Specify the user name (Default: openerp).
+USER=openerp
+
+PROGRAM=pg8
+START_STOP_DAEMON=/usr/sbin/start-stop-daemon
+PGCTL=/home/od8/runtime/pgsql/bin/pg_ctl
+DATAPATH=/home/od8/runtime/pgsql/data
+LOGFILE=/home/od8/runtime/pgsql/postgres.odoo.log
+DAEMON=$PGCTL
+DAEMON_OPTS="-D $DATAPATH start -l $LOGFILE"
+
+start() {
+    echo "Starting PostgreSQL server ..."
+    su -c "$DAEMON $DAEMON_OPTS" ${USER}
+}
+
+stop() {
+    su -c "$PGCTL -D $DATAPATH stop" ${USER}
+}
+
+case $1 in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "USAGE $PROGRAM {start|stop|restart}"
+        ;;
+esac
